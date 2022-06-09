@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Photon.Pun;
+using UnityEngine;
 
-public class AmmoPack : MonoBehaviour, IItem
+public class AmmoPack : MonoBehaviourPun, IItem
 {
     public int ammo = 30; // 충전할 탄알 수
 
@@ -12,11 +13,14 @@ public class AmmoPack : MonoBehaviour, IItem
         // PlayerShooter 컴포넌트가 있으며 총 오브젝트가 존재하면
         if (playerShooter != null && playerShooter.gun != null)
         {
-            // 총의 남은 탄알 수를 ammo만큼 더함
-            playerShooter.gun.ammoRemain += ammo;
+            // 총의 남은 탄알 수를 ammo만큼 더함. 모든 클라이언트에서 실행
+            // playerShooter.gun.ammoRemain += ammo;
+            playerShooter.gun.photonView.RPC("AddAmmo", RpcTarget.All, ammo); // PlayerHealth에서 호스트에서 실행되도록 하였음
         }
 
-        // 사용되었으므로 자신을 파괴
-        Destroy(gameObject);
+        //// 사용되었으므로 자신을 파괴
+        //Destroy(gameObject);
+        // 모든 클라이언트에서 자신 파괴
+        PhotonNetwork.Destroy(gameObject);
     }
 }
