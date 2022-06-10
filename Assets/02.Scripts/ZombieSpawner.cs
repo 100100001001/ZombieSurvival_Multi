@@ -8,7 +8,7 @@ using UnityEngine;
 public class ZombieSpawner : MonoBehaviourPun, IPunObservable
 {
     public Zombie zombiePrefab; // 생성할 좀비 원본 프리팹
-    //public Zombie[] zombiePrefabs; // 생성할 좀비 프리팹
+    //public Zombie[] zombiePrefabs; // 생성할 좀비 프리팹들
 
     public ZombieData[] zombieDatas; // 사용할 좀비 셋업 데이터
     public Transform[] spawnPoints; // 좀비 AI를 소환할 위치
@@ -126,9 +126,12 @@ public class ZombieSpawner : MonoBehaviourPun, IPunObservable
         //zombie.Setup(zombieData);
         //zombie.GetComponent<Zombie>().Setup(zombieData); (?)
 
+
         // 생성한 좀비의 능력치 설정
 
-        Vector4 colorVector = zombieData.skinColor; // 강사님이 추가한 코드) ColorSerialization 오류 해결
+        // 강사님이 추가한 코드) ColorSerialization 안 해도 됨 (Vector4 또는 Quaternion)
+        //Vector4 colorVector = zombieData.skinColor; 
+        //Quaternion colorVector = new Quaternion(zombieData.skinColor.r, zombieData.skinColor.g, zombieData.skinColor.b, zombieData.skinColor.a);
 
         zombie.photonView.RPC("Setup", RpcTarget.All, zombieData.health, zombieData.damage, zombieData.speed, zombieData.skinColor);
         //zombie.photonView.RPC("Setup", RpcTarget.All, zombieData.health, zombieData.damage, zombieData.speed, colorVector);

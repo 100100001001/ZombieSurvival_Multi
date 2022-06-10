@@ -245,8 +245,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb86dff4a1d33d14783adf7ef3e99e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectionInfoText: {fileID: 0}
-  joinButton: {fileID: 0}
+  connectionInfoText: {fileID: 514131412}
+  joinButton: {fileID: 711181111}
 --- !u!4 &191460837
 Transform:
   m_ObjectHideFlags: 0
@@ -320,8 +320,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC11C\uBC84 \uC815\uBCF4 \uD45C\uC2DC"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 458291234b62a184e9bfca7fa609af91, type: 2}
-  m_sharedMaterial: {fileID: -2644290069136100160, guid: 458291234b62a184e9bfca7fa609af91, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6ea8c461ff2e2e24fb1b4d360b3de107, type: 2}
+  m_sharedMaterial: {fileID: -2946353494218459859, guid: 6ea8c461ff2e2e24fb1b4d360b3de107, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -452,7 +452,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Zombie Survival
+  m_text: 'Zombie
+
+    Survival'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 94386c7a73829b64d86384561df3b4db, type: 2}
   m_sharedMaterial: {fileID: 950758439981306282, guid: 94386c7a73829b64d86384561df3b4db, type: 2}
@@ -479,8 +481,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -677,7 +679,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 711181112}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 191460836}
+        m_TargetAssemblyTypeName: LobbyManager, Assembly-CSharp
+        m_MethodName: Connect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &711181112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1036,8 +1050,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC811\uC18D"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 458291234b62a184e9bfca7fa609af91, type: 2}
-  m_sharedMaterial: {fileID: -2644290069136100160, guid: 458291234b62a184e9bfca7fa609af91, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6ea8c461ff2e2e24fb1b4d360b3de107, type: 2}
+  m_sharedMaterial: {fileID: -2946353494218459859, guid: 6ea8c461ff2e2e24fb1b4d360b3de107, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

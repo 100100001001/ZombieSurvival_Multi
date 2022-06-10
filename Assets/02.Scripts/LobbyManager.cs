@@ -2,19 +2,20 @@
 using Photon.Realtime; // 포톤 서비스 관련 라이브러리
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 // 마스터(매치메이킹) 서버와 룸 접속 담당
 public class LobbyManager : MonoBehaviourPunCallbacks
 {
     private string gameVersion = "1"; // 게임 버전
 
-    public Text connectionInfoText; // 네트워크 정보를 표시할 텍스트
+    public TextMeshProUGUI connectionInfoText; // 네트워크 정보를 표시할 텍스트
     public Button joinButton; // 룸 접속 버튼
 
     // 게임 실행과 동시에 마스터 서버 접속 시도
-    private void Start()
+    void Start()
     {
-        // 접속에 필요한 정보(게임 비전) 설명
+        // 접속에 필요한 정보(게임 버전) 설정
         PhotonNetwork.GameVersion = gameVersion;
         // 설정한 정보로 마스터 서버 접속 시도
         PhotonNetwork.ConnectUsingSettings();
@@ -22,7 +23,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         // 룸 접속 버튼 잠시 비활성화
         joinButton.interactable = false;
         // 접속 시도 중임을 텍스트로 표시
-        connectionInfoText.text = "마스터 서버 접속 중...";
+        connectionInfoText.text = "마스터 서버에 접속 중...";
     }
 
     // 마스터 서버 접속 성공 시 자동 실행
@@ -31,7 +32,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         // 룸 접속 버튼 활성화
         joinButton.interactable = true;
         // 접속 정보 표시
-        connectionInfoText.text = "온라인 : 마스터 서버와 연결됨";
+        connectionInfoText.text = "온라인 : 마스터 서버와 연결됨.";
     }
 
     // 마스터 서버 접속 실패 시 자동 실행
@@ -40,7 +41,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         // 룸 접속 버튼 비활성화
         joinButton.interactable = false;
         // 접속 정보 표시
-        connectionInfoText.text = "오프라인 : 마스터 서버와 연결되지 않음\n접속 재시도 중...";
+        connectionInfoText.text = "오프라인 : 마스터 서버와 연결되 않음\n접속 재시도 중...";
 
         // 마스터 서버로의 재접속 시도
         PhotonNetwork.ConnectUsingSettings();
@@ -62,7 +63,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         else
         {
             // 마스터 서버에 접속 중이 아니라면 마스터 서버에 접속 시도
-            connectionInfoText.text = "오프라인 : 마스터 서버와 연결되지 않음\n접속 재시도 중...";
+            connectionInfoText.text = "오프라인 : 마스터 서버와 연결되지 않음\n접속 재시동 중...";
             // 마스터 서버로의 재접속 시도
             PhotonNetwork.ConnectUsingSettings();
         }
